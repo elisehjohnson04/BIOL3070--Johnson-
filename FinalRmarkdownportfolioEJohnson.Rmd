@@ -1,0 +1,66 @@
+---
+title: "Final Rmarkdown Portfolio"
+author: "Elise Johnson"
+date: "`r Sys.Date()`"
+output:
+  github_document:
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+# ABSTRACT
+
+
+
+# BACKGROUND
+
+
+# STUDY QUESTION and HYPOTHESIS
+
+## Questions  
+Is there a correlation between the proportion of low air quality days and prevalence of asthma per state? 
+
+## Hypothesis 
+Where you live has an effect on whether you experience asthma or not
+  
+## Prediction
+I predict that the state you live in does impact your chances of having asthma. The states with lower air quality will have higher rates of asthma. 
+
+
+# METHODS
+
+
+## First analysis
+```{r plot1, eval=TRUE}
+# code for figure 1
+mydata<- read.csv("groupfile.csv")
+# library
+library(ggplot2)
+ 
+# The iris dataset is provided natively by R
+#head(iris)
+ 
+# basic scatterplot
+ggplot(mydata, aes(x=Proportion.of..poor.air.quality..days, y=Percent.Adults.with.Current.Asthma)) + 
+    geom_point()
+```
+
+## Second analysis/plot
+```{r plot2, eval=FALSE}
+
+
+# DISCUSSION
+
+## Interpretation 1 -
+
+
+
+## Interpretation 2 -
+
+
+# CONCLUSION
+
+# REFERENCES     
+

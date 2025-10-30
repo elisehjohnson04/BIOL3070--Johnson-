@@ -1,7 +1,7 @@
 Warm-up mini-Report: Mosquito Blood Hosts in Salt Lake City, Utah
 ================
 Elise Johnson
-2025-10-09
+2025-10-11
 
 - [ABSTRACT](#abstract)
 - [BACKGROUND](#background)
@@ -10,31 +10,38 @@ Elise Johnson
   - [Hypothesis](#hypothesis)
   - [Prediction](#prediction)
 - [METHODS](#methods)
-  - [Fill in first analysis](#fill-in-first-analysis)
-  - [Fill in second analysis/plot](#fill-in-second-analysisplot)
+  - [First analysis](#first-analysis)
+  - [Second analysis/plot](#second-analysisplot)
 - [DISCUSSION](#discussion)
-  - [Interpretation - fill in
-    analysis](#interpretation---fill-in-analysis)
+  - [Interpretation 1 -](#interpretation-1--)
+  - [Interpretation 2 -](#interpretation-2--)
+- [CONCLUSION](#conclusion)
 
 # ABSTRACT
 
-Our data shows that there is a correlation between house finches in
-locations as testing positive for WNV.summarize overall study question,
-approach, results and conclusion in a short paragraph
+West Nile Virus is a mosquito borne pathogen that is transferred
+primarily from birds to other animals. The question asked was which bird
+species are acting as amplifying hosts for WVN? Mosquitos were collected
+in different sites near SLC. After performing DNA blood meal sequencing,
+PCR, extraction, and data analysis, a positive correlation was found
+between locations of house finches and higher rates of West Nile Virus.
+These findings support the hypothesis that house finches are amplifying
+hosts of WNV.
 
 # BACKGROUND
 
-West Nile Virus is a virus that is transferred by mosquitos from hosts
-to other hosts. It is Viremia, or a virus that enters the bloodstream,
-which is why mosquitos are good carriers for it. The viremia duration
-(Kumar et al., 2003) bar plot shows the significance of house finches as
-hosts with the West Nile Virus, as they appear to be a prominent host
-for the virus and provides a basis for our hypothesis that house finches
-serve as amplifying hosts for WNC. We predict that locations with more
-house finches also have higher positive tests for WNC in mosquito pools.
-
-NOTE: Examples of data you can plot for the background info at
-<https://github.com/saarman/BIOL3070/>
+West Nile Virus is a mosquito bourne virus that is usually transferred
+from birds to other animals. It is a Viremia virus, or a virus that
+enters the bloodstream, which is why mosquitos are good carriers for it
+(ChatGPT). Humans and other animals don’t carry high levels of viremia
+in their blood, making them bad amplifying hosts, but birds are known to
+have high levels, causing them to often be excellent amplifying hosts.
+The viremia duration (Kumar et al., 2003) bar plot shows the
+significance of house finches as hosts with the West Nile Virus, as they
+appear to be a prominent host for the virus and provides a basis for our
+hypothesis that house finches serve as amplifying hosts for WNC. We
+predict that locations with more house finches also have higher positive
+tests for WNV in mosquito pools.
 
 ``` r
 # Manually transcribe duration (mean, lo, hi) from the last table column
@@ -78,12 +85,13 @@ arrows(duration$lo, bp, duration$hi, bp,
 
 ## Questions
 
-Which bird species acts as an amplifying host of WNV in Salt Lake City?
+We would like to know which bird species acts as an amplifying host of
+WNV in Salt Lake City.
 
 ## Hypothesis
 
-House finches are acting as important amplifying hosts of WNV in Salt
-Lake City.
+Our hypothesis is that house finches are acting as important amplifying
+hosts of WNV in Salt Lake City.
 
 ## Prediction
 
@@ -93,13 +101,13 @@ have higher rates of confirmed WNV in tested mosquito pools.
 
 # METHODS
 
-We took captured mosquitos from the SLC area and performed a blood meal
-DNA extraction and then a PCR. We smashed them, extracted the DNA, added
-the lysis buffer to break down the cell membranes. We added the template
-DNA and polymerase and primers. They were placed in the Thermocycler and
-then data was analyzed.
+We took captured mosquitos from the SLC area and smashed them. We
+performed a blood meal DNA extraction and then a PCR. We added the lysis
+buffer to break down the cell membranes. Then we added the template DNA
+and polymerase and primers. They were placed in the Thermocycler and
+then the data was analyzed.
 
-## Fill in first analysis
+## First analysis
 
 Horizontal plots:
 
@@ -199,7 +207,12 @@ par(op)
 host_species_colors <- species_colors
 ```
 
-## Fill in second analysis/plot
+This plot shows a clear difference between the numbers of house finches
+positive and negative for WNV. More house finches test positive for it
+rather than negative and there are a greater number of house finches in
+the area positive for WNV.
+
+## Second analysis/plot
 
 Salt Lake City Mosquito Abatement Surveillance:
 
@@ -258,19 +271,44 @@ summary(glm2)
     ## 
     ## Number of Fisher Scoring iterations: 2
 
+This data shows whether there is a significant correlation between
+number of house finches and testing positive for WNV.
+
 # DISCUSSION
 
-## Interpretation - fill in analysis
+## Interpretation 1 -
 
-The relationship between the number of mosquito blood meals from house
-finches and whether WNV was detected at that location was shown to be
-positive by the data collected and analyzed. \## Interpretation - fill
-in analysis/plot The bar plot showed a clear visual difference between
-the amount of blood from house finches that were positive for WNV and
-not. The house finches positive for WNV were in much greater quantity
-than the house finches that were negative. \# CONCLUSION Our analyses
-support the hypothesis that house finches serve as amplifying hosts for
-West Nile Virus in Salt Lake City. \# REFERENCES
+The bar plot was used to test whether blood meals from house finches
+have a greater positive or negative rate for West Nile Virus. It showed
+a clear visual difference between the amount of blood from house finches
+that were positive for WNV and not. The house finches positive for WNV
+were in much greater quantity than the house finches that were negative.
+While this supports our hypothesis that house finches act as amplifying
+species for WNV, a possible limitation could be the fact that birds only
+carry viremia in their blood for a few days. If a bird was tested a few
+days after becoming infected, their results may be negative, in turn
+misrepresenting the amount of positive infections.
+
+## Interpretation 2 -
+
+The Generalized Linear Model (GLM) was used to test whether our results
+of a positive correlation between location of house finches and positive
+WNV occurred by chance. We obtained a p value of 4.54e-05. Our data also
+showed 3 \*\*\*, which means that our p value was about 0. This can be
+interpreted as the probability that our results occurred by chance is
+about 0, meaning that there is a significant correlation between house
+finches and positive WNV. Areas with more house finches indicate higher
+rates of WNV, supporting our hypothesis. A possible limitation could be
+other factors involved. One possibility would be that house finches
+prefer to live in areas that mosquitos also prefer to live in. An
+increased number of mosquitos would mean increased WNV and if there were
+more house finches in that particular area, it would appear
+correlational when there might not even be a direct correlation.
+
+# CONCLUSION
+
+Our analyses support the hypothesis that house finches serve as
+amplifying hosts for West Nile Virus in Salt Lake City. \# REFERENCES
 
 1.  Komar N, Langevin S, Hinten S, Nemeth N, Edwards E, Hettler D, Davis
     B, Bowen R, Bunning M. Experimental infection of North American
@@ -278,6 +316,4 @@ West Nile Virus in Salt Lake City. \# REFERENCES
     Dis. 2003 Mar;9(3):311-22. <https://doi.org/10.3201/eid0903.020628>
 
 2.  ChatGPT. OpenAI, version Jan 2025. Used as a reference for functions
-    such as plot() and to correct syntax errors. Accessed 2025-10-09.
-
-?round()
+    such as plot() and to correct syntax errors. Accessed 2025-10-11.
