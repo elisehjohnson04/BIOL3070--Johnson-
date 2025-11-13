@@ -1,6 +1,6 @@
 Group Project
 ================
-Keyan Cummins
+Elise Johnson
 2025-11-13
 
 - [ABSTRACT](#abstract)
