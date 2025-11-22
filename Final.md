@@ -1,7 +1,7 @@
 Group Project
 ================
 Elise Johnson
-2025-11-13
+2025-11-22
 
 - [ABSTRACT](#abstract)
 - [BACKGROUND](#background)
@@ -22,21 +22,19 @@ Elise Johnson
 
 # BACKGROUND
 
-Indoor and outdoor air pollution has been shown to worsen asthma in
-individuals that have asthma. There are many factors that can influence
-asthma severity including air temperature, humidity, wind speed,
-location, offgassing of building materials, tobacco, smoke from fires,
-and airborne allergens. Some of the biggest air polluters are
-particulate matter or small droplets that are less than 2.5 µm in
-diameter, ozone, nitrogen dioxide, sulfur dioxide, and carbon
-monoxide.(<https://www.aaaai.org/tools-for-the-public/conditions-library/asthma/your-questions-answered-on-air-pollution-and-asthm>).
-Exposure to these pollutants can inflame and irritate the lining and
-receptors of a person’s airways. This can cause symptoms similar to
-asthma. As past studies have found a correlation between air quality and
-asthma prevalance, we hypothesized that if a person lives in a state
-with more low quality air days, they are more likely to have asthma.
-Figure one shows the percentage of poor air quality days compared with
-the percentage of adults with asthma.
+Asthma is a lung condition that causes difficulty in breathing due to
+constricted airways in the lungs. It can be worsened by indoor and
+outdoor air pollution from factors such as temperature, humidity, wind,
+building material emissions, and smoke. Pollutants such as particulate
+matter, ozone, nitrogen dioxide, sulfur dioxide, and carbon monoxide are
+also linked to worsening asthma symptoms (AAAAI). Poor air quality can
+impact those who suffer from asthma by causing their condition to worsen
+and trigger attacks (Tiotiu). The aim of this analysis is to determine
+if poor air quality is correlated to higher rates of asthma, as opposed
+to just worsening it. We hypothesized that air quality is correlated
+with asthma. We predicted that the states with the highest number of
+poor air quality days would also have the highest prevalence of asthma
+in adults.
 
 ``` r
 # Load the data
@@ -143,30 +141,42 @@ lines(density(df$poor_air_pct), col = "darkred", lwd = 2)
 par(mfrow = c(1, 1))
 ```
 
+``` r
+knitr::include_graphics("./images/AQI table.png")
+```
+
+![](./images/AQI%20table.png)<!-- -->
+
 # STUDY QUESTION and HYPOTHESIS
 
 ## Questions
 
-Does air quality effect the prevalence of asthma per state?
+Does air quality effect the prevalence of adult asthma per state?
 
 ## Hypothesis
 
-The states with the highest amounts of poor air quality days will also
-have higher prevalence of asthma.
+We hypothesized that air quality is correlated with asthma.
 
 ## Prediction
 
-California will have the highest prevelance of asthma because of its’
-high amounts of poor air quality days.
+We predicted that the states with the highest number of poor air quality
+days will also have the highest prevelance of asthma in adults.
 
 # METHODS/RESULTS
 
-## 1st Analysis
+We found data from the Center for Disease Control on adult asthma
+prevelance by state for the year 2022. We removed a few territories
+included that were not official US states to match with our other data
+set. We found air quality data from the U.S. Environmental Protection
+Agency for the year 2022. As there was a lot of data unrelated to what
+we were studying, we removed some of it from our data set. We also
+subtracted the “good” days from the data set, only using the moderate to
+bad days. We divided these “poor” days by the total number of days. We
+then averaged these proportions across counties within each state. Using
+the state averages we ran a linear regression and Pearson correlation
+test.
 
-The first analysis utilized Simple Linear Regression to determine the
-presence, strength, and direction of a linear relationship between the
-predictor variable (Proportion of Poor Air Quality Days) and the
-response variable (Asthma Rate in percent).
+## 1st Analysis
 
 ``` r
 ## 1st Analysis: Linear Regression - Air Quality vs Asthma Rates
@@ -179,11 +189,11 @@ plot(air_data$Poor_Air_Percent, air_data$Asthma,
      xlab = "Percentage of Poor Air Quality Days",
      ylab = "Asthma Rate (%)",
      main = "Air Quality vs Asthma Rates by State",
-     pch = 16, col = "blue", cex = 1.2)
+     pch = 16, col = "pink2", cex = 1.2)
 
 # Add regression line
 model <- lm(Asthma ~ Poor_Air_Percent, data = air_data)
-abline(model, col = "red", lwd = 2)
+abline(model, col = "purple4", lwd = 2)
 
 # Calculate statistics
 correlation <- cor(air_data$Poor_Air_Percent, air_data$Asthma)
@@ -225,7 +235,7 @@ legend("topright",
        bty = "n", cex = 0.9)
 ```
 
-![](Final_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
+![](Final_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
 
 ## 2nd Analysis
 
@@ -273,52 +283,63 @@ Pearson Correlation Analysis
 
 ## Interpretation of 1st analysis
 
+The first analysis used a Simple Linear Regression to test for a linear
+relationship, strength, and direction between the proportion of poor air
+quality days and the presence of asthma in adults. As shown in the
+graph, as the percentage of poor air quality days increases, the
+percentage of adults with asthma decreases. As indicated by the r and R2
+value, there is a weak, negative relationship between the two variables.
+
 ## Interpretation of 2nd analysis
+
+The second analysis used a Pearson Correlation test. As the p value is
+0.05, our results are deemed statistically significant. The Pearson
+correlation coefficient is -0.279, displaying a weak, negative
+relationship between the two variables.
 
 # CONCLUSION
 
 The analyses performed in this study failed to support the hypothesis
-that states with a higher number of poor air quality days have a higher
-prevalence of asthma. Instead, the data presented a statistically
-significant, yet weak, negative correlation. Specifically, the Low
-Pollution group was found to have a significantly higher mean asthma
-rate than the High Pollution group.
+that air quality is correlated with the presence of asthma in adults.
+The data showed a statistically significant, yet weak, negative
+correlation between the two variables. Specifically, the Low Pollution
+group was found to have a significantly higher mean asthma rate than the
+High Pollution group.
 
-The prediction that California (which has one of the highest proportions
-of poor air days (at 46%) would have the highest asthma prevalence was
-empirically incorrect; California has one of the lowest asthma rates
-(8.7%). Conversely, states like Rhode Island, New Hampshire, and
-Vermont, which generally have lower poor air days, report some of the
-highest asthma rates (up to 13.3%).
+The prediction that states with more air quality days would have a
+higher proportion of asthma in adults was found to be false. In fact, a
+slight inverse relationship was found, as there appear to be a greater
+proportion of adults with asthma in states with fewer poor air quality
+days.
 
 This evidence strongly suggests that state-level outdoor air quality is
-not the dominant factor determining asthma prevalence. At this broad
-geographic scale, asthma rates are likely more strongly influenced by
-powerful confounding variables, such as:
-
-1.  Indoor Environment: Factors like poor ventilation, mold, dust, and
-    smoking within the home.
-
-2.  Climate and Geography: Humidity, temperature, and the intensity of
-    seasonal allergens.
-
-3.  Public Health Practices and Reporting: Regional differences in
-    diagnosis, health education, and public health campaigns.
-
-Future studies should use individual-level data or employ multivariate
-regression techniques that can isolate the effect of air quality while
-controlling for confounding demographic and climate variables.
+not the dominant factor determining asthma prevalence. This geographic
+scale is likely too broad, as each state can have very different air
+quality at different locations within it. Asthma rates are more likely
+influenced by indoor environment, temperature, humidity, and allergens.
+Future studies should involve smaller geographic areas, home
+environment, climate, or seasons.
 
 # REFERENCES
 
-1.  Tiotiu AI, Novakova P, Nedeva D, Chong-Neto HJ, Novakova S,
+1.  AAAAI. (n.d.). Your questions answered on air pollution, wildfires
+    and asthma. American Academy of Allergy Asthma & Immunology.
+    <https://www.aaaai.org/tools-for-the-public/conditions-library/asthma/your-questions-answered-on-air-pollution-and-asthm>
+
+2.  CDC. (n.d.). Asthma surveillance data. Centers for Disease Control
+    and Prevention. <https://www.cdc.gov/asthma-data/about/index.html>
+
+3.  ChatGPT. OpenAI, version Jan 2025. Used as a reference for functions
+    such as plot() and to correct syntax errors. Accessed 2025-11-22.
+
+4.EPA. (n.d.). AirData website file download page.
+<https://aqs.epa.gov/aqsweb/airdata/download_files.html>
+
+5.  Google. (2025). Gemini (version Oct 2025). Tool used for quick
+    fixes, editing grammar and flow of text, and checking all rubric
+    requirements were met.
+
+6.  Tiotiu AI, Novakova P, Nedeva D, Chong-Neto HJ, Novakova S,
     Steiropoulos P, Kowal K. Impact of Air Pollution on Asthma Outcomes.
     Int J Environ Res Public Health. 2020 Aug 27;17(17):6212. doi:
     10.3390/ijerph17176212. PMID: 32867076; PMCID: PMC7503605.
-
-2.  ChatGPT. OpenAI, version Jan 2025. Used as a reference for functions
-    such as plot() and to correct syntax errors. Accessed 2025-11-13.
-
-3.  Google. (2025). Gemini (version Oct 2025). Tool used for quick
-    fixes, editing grammar and flow of text, and checking all rubric
-    requirements were met.
