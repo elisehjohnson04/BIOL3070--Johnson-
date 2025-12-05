@@ -1,12 +1,12 @@
-Group Project
+Final Project
 ================
 Elise Johnson
-2025-11-22
+2025-12-05
 
 - [ABSTRACT](#abstract)
 - [BACKGROUND](#background)
 - [STUDY QUESTION and HYPOTHESIS](#study-question-and-hypothesis)
-  - [Questions](#questions)
+  - [Question](#question)
   - [Hypothesis](#hypothesis)
   - [Prediction](#prediction)
 - [METHODS/RESULTS](#methodsresults)
@@ -20,6 +20,15 @@ Elise Johnson
 
 # ABSTRACT
 
+Asthma causes difficulty in breathing and poor air quality can worsen
+it. We asked whether states with higher poor air quality would have
+higher rates in asthma in adults. We used a Linear Regression test and
+Pearson Correlation test. Our results showed a weak, significant
+negative correlation, indicating that states with higher poor air
+quality had slightly less asthma prevalence. These findings didn’t
+support our hypothesis that states with higher rates of poor air quality
+would have higher rates of asthma.
+
 # BACKGROUND
 
 Asthma is a lung condition that causes difficulty in breathing due to
@@ -30,11 +39,12 @@ matter, ozone, nitrogen dioxide, sulfur dioxide, and carbon monoxide are
 also linked to worsening asthma symptoms (AAAAI). Poor air quality can
 impact those who suffer from asthma by causing their condition to worsen
 and trigger attacks (Tiotiu). The aim of this analysis is to determine
-if poor air quality is correlated to higher rates of asthma, as opposed
-to just worsening it. We hypothesized that air quality is correlated
-with asthma. We predicted that the states with the highest number of
-poor air quality days would also have the highest prevalence of asthma
-in adults.
+if air quality affects the prevalence of adult asthma per state. We
+hypothesized that states with lower air quality would have higher rates
+of asthma in adults. We predicted that the states with the highest
+number of poor air quality days would also have the highest prevalence
+of asthma in adults. Figure one shows the percentage of poor air quality
+days compared with the percentage of adults with asthma.
 
 ``` r
 # Load the data
@@ -93,12 +103,10 @@ legend("bottomright",
        bty = "n")
 ```
 
-<figure>
-<img src="Final_files/figure-gfm/asthma-ranked-bars-1.png"
-alt="Adults with Current Asthma vs. Poor-Air Days by State (ranked by Asthma %)" />
-<figcaption aria-hidden="true">Adults with Current Asthma vs. Poor-Air
-Days by State (ranked by Asthma %)</figcaption>
-</figure>
+![Adults with Current Asthma vs. Poor-Air Days by State (ranked by
+Asthma %)](Final_files/figure-gfm/asthma-ranked-bars-1.png) This table
+shows the percentage of adults with asthma in each state, along with the
+percentage of poor air quality days in each state.
 
 ``` r
 # Set up side-by-side plots
@@ -141,42 +149,49 @@ lines(density(df$poor_air_pct), col = "darkred", lwd = 2)
 par(mfrow = c(1, 1))
 ```
 
+This table shows a normal distribution of our data, meaning that our
+data and results are reliable. There are few outliers.
+
 ``` r
 knitr::include_graphics("./images/AQI table.png")
 ```
 
 ![](./images/AQI%20table.png)<!-- -->
 
+This table shows what is taken into account to define a “poor air
+quality day.”
+
 # STUDY QUESTION and HYPOTHESIS
 
-## Questions
+## Question
 
-Does air quality effect the prevalence of adult asthma per state?
+Does air quality affect the prevalence of adult asthma per state?
 
 ## Hypothesis
 
-We hypothesized that air quality is correlated with asthma.
+We hypothesized that lower air quality increases the rates of asthma.
 
 ## Prediction
 
 We predicted that the states with the highest number of poor air quality
-days will also have the highest prevelance of asthma in adults.
+days will also have the highest prevalence of asthma in adults.
 
 # METHODS/RESULTS
 
 We found data from the Center for Disease Control on adult asthma
-prevelance by state for the year 2022. We removed a few territories
+prevalence by state for the year 2022. We removed a few territories
 included that were not official US states to match with our other data
 set. We found air quality data from the U.S. Environmental Protection
-Agency for the year 2022. As there was a lot of data unrelated to what
-we were studying, we removed some of it from our data set. We also
-subtracted the “good” days from the data set, only using the moderate to
-bad days. We divided these “poor” days by the total number of days. We
-then averaged these proportions across counties within each state. Using
-the state averages we ran a linear regression and Pearson correlation
-test.
+Agency for the year 2022. We removed data unrelated to our study to
+focus on relevant variables. We also subtracted the “good” days from the
+data set, only using the moderate to bad days to define “poor” days. We
+divided these “poor” days by the total number of days. We then averaged
+these proportions across counties within each state. Using the state
+averages, we ran a Linear Regression and Pearson Correlation test.
 
 ## 1st Analysis
+
+Simple Linear Regression Test
 
 ``` r
 ## 1st Analysis: Linear Regression - Air Quality vs Asthma Rates
@@ -237,7 +252,14 @@ legend("topright",
 
 ![](Final_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
 
+This Linear Regression test plot shows a negative direction and weak
+relationship between percent of poor air quality days and percent of
+adults with asthma in each state. The results are shown to be
+significant.
+
 ## 2nd Analysis
+
+Pearson Correlation Test
 
 ``` r
 ## Pearson Correlation Analysis
@@ -278,6 +300,10 @@ knitr::kable(correlation_table, caption = "Pearson Correlation Analysis")
 | Sample Size                     | 50.0000 |
 
 Pearson Correlation Analysis
+
+This Pearson Correlation test shows a weak, negative relationship
+between poor air quality days and prevalence of asthma, and that our
+results are statistically significant.
 
 # DISCUSSION
 
@@ -330,7 +356,7 @@ environment, climate, or seasons.
     and Prevention. <https://www.cdc.gov/asthma-data/about/index.html>
 
 3.  ChatGPT. OpenAI, version Jan 2025. Used as a reference for functions
-    such as plot() and to correct syntax errors. Accessed 2025-11-22.
+    such as plot() and to correct syntax errors. Accessed 2025-12-05.
 
 4.EPA. (n.d.). AirData website file download page.
 <https://aqs.epa.gov/aqsweb/airdata/download_files.html>
