@@ -72,6 +72,7 @@ legend("bottomright",
        cex = 0.8,
        bty = "n")
 ```
+
 This table shows the percentage of adults with asthma in each state, along with the percentage of poor air quality days in each state. 
 ```{r}
 # Set up side-by-side plots
@@ -252,7 +253,7 @@ This evidence strongly suggests that state-level outdoor air quality is not the 
 
 3. ChatGPT. OpenAI, version Jan 2025. Used as a reference for functions such as plot() and to correct syntax errors. Accessed `r Sys.Date()`.
 
- 4.EPA. (n.d.). AirData website file download page. https://aqs.epa.gov/aqsweb/airdata/download_files.html 
+4.EPA. (n.d.). AirData website file download page. https://aqs.epa.gov/aqsweb/airdata/download_files.html
 
 5. Google. (2025). Gemini (version Oct 2025). Tool used for quick fixes, editing grammar and flow of text, and checking all rubric requirements were met.
 

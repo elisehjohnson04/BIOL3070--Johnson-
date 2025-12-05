@@ -103,10 +103,15 @@ legend("bottomright",
        bty = "n")
 ```
 
-![Adults with Current Asthma vs. Poor-Air Days by State (ranked by
-Asthma %)](Final_files/figure-gfm/asthma-ranked-bars-1.png) This table
-shows the percentage of adults with asthma in each state, along with the
-percentage of poor air quality days in each state.
+<figure>
+<img src="Final_files/figure-gfm/asthma-ranked-bars-1.png"
+alt="Adults with Current Asthma vs. Poor-Air Days by State (ranked by Asthma %)" />
+<figcaption aria-hidden="true">Adults with Current Asthma vs. Poor-Air
+Days by State (ranked by Asthma %)</figcaption>
+</figure>
+
+This table shows the percentage of adults with asthma in each state,
+along with the percentage of poor air quality days in each state.
 
 ``` r
 # Set up side-by-side plots
